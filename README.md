@@ -19,7 +19,7 @@ Dashboard untuk mengelola blog pribadi dengan fitur CRUD (Create, Read, Update, 
 2. Jalankan `npm install` untuk menginstall dependencies
 3. Jalankan `npm run setup` untuk membuat folder yang diperlukan
 4. Jalankan `npm start` untuk menjalankan server
-5. Buka http://localhost:3000 di browser
+5. Buka https://blog-weld-nine-57.vercel.app/ di browser
 
 ## Struktur Data
 
@@ -36,10 +36,10 @@ File gambar yang di-upload disimpan di folder `public/uploads/` dengan subfolder
 
 1. **GET /api/public/posts** - Daftar post dengan pagination & filtering
    - Query parameters: `page`, `limit`, `category`, `tag`, `featured`, `sort`
-   - Example: `http://localhost:3000/api/public/posts?page=1&limit=5&category=Fotografi`
+   - Example: `https://blog-weld-nine-57.vercel.app//api/public/posts?page=1&limit=5&category=Fotografi`
 
 2. **GET /api/public/posts/:slug** - Detail post berdasarkan slug
-   - Example: `http://localhost:3000/api/public/posts/tips-fotografi-pemula`
+   - Example: `https://blog-weld-nine-57.vercel.app//api/public/posts/tips-fotografi-pemula`
 
 3. **GET /api/public/categories** - Daftar kategori
 4. **GET /api/public/authors** - Daftar authors  
@@ -49,7 +49,7 @@ File gambar yang di-upload disimpan di folder `public/uploads/` dengan subfolder
 
 ```javascript
 // Mendapatkan post terbaru
-fetch('http://localhost:3000/api/public/posts?limit=5')
+fetch('https://blog-weld-nine-57.vercel.app//api/public/posts?limit=5')
   .then(response => response.json())
   .then(data => {
     if (data.success) {
@@ -58,7 +58,7 @@ fetch('http://localhost:3000/api/public/posts?limit=5')
   });
 
 // Mendapatkan detail post
-fetch('http://localhost:3000/api/public/posts/tips-fotografi-pemula')
+fetch('https://blog-weld-nine-57.vercel.app//api/public/posts/tips-fotografi-pemula')
   .then(response => response.json())
   .then(data => {
     if (data.success) {

@@ -124,7 +124,7 @@
                 <div class="flex items-center">
                     <span class="text-green-500 mr-2"><i class="fas fa-link"></i></span>
                     <strong class="mr-2">Base URL:</strong>
-                    <code class="bg-gray-200 px-2 py-1 rounded">http://localhost:3000/api/public</code>
+                    <code class="bg-gray-200 px-2 py-1 rounded">https://blog-weld-nine-57.vercel.app//api/public</code>
                 </div>
             </div>
         </section>
@@ -155,7 +155,7 @@
                     <span class="font-bold text-lg">/posts</span>
                 </div>
                 <div class="bg-gray-800 text-gray-100 p-4 rounded-xl font-mono mb-4">
-                    http://localhost:3000/api/public/posts
+                    https://blog-weld-nine-57.vercel.app/api/public/posts
                 </div>
                 <p class="text-gray-700 mb-4">Mendapatkan daftar post dengan pagination dan filtering.</p>
 
@@ -247,12 +247,12 @@
                 </h3>
                 <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
                     <pre class="code-block text-sm"><code>// JavaScript
-fetch('http://localhost:3000/api/public/posts?page=1&limit=5&category=Fotografi')
+fetch('https://blog-weld-nine-57.vercel.app/api/public/posts?page=1&limit=5&category=Fotografi')
   .then(response => response.json())
   .then(data => console.log(data));
 
 // jQuery
-$.getJSON('http://localhost:3000/api/public/posts', {
+$.getJSON('https://blog-weld-nine-57.vercel.app/api/public/posts', {
   page: 1,
   limit: 5,
   category: 'Fotografi'
@@ -269,7 +269,7 @@ $.getJSON('http://localhost:3000/api/public/posts', {
                     <span class="font-bold text-lg">/posts/:slug</span>
                 </div>
                 <div class="bg-gray-800 text-gray-100 p-4 rounded-xl font-mono mb-4">
-                    http://localhost:3000/api/public/posts/tips-fotografi-pemula
+                    https://blog-weld-nine-57.vercel.app/api/public/posts/tips-fotografi-pemula
                 </div>
                 <p class="text-gray-700 mb-4">Mendapatkan detail post berdasarkan slug.</p>
 
@@ -346,14 +346,14 @@ $.getJSON('http://localhost:3000/api/public/posts', {
 &lt;script&gt;
 async function loadBlogPosts() {
   try {
-    const response = await fetch('http://localhost:3000/api/public/posts?limit=3');
+    const response = await fetch('https://blog-weld-nine-57.vercel.app/api/public/posts?limit=3');
     const data = await response.json();
     
     if (data.success) {
       const container = document.getElementById('blog-posts');
       container.innerHTML = data.data.map(post =&gt; `
         &lt;div class="post"&gt;
-          &lt;img src="http://localhost:3000${post.thumbnail}" alt="${post.title}"&gt;
+          &lt;img src="https://blog-weld-nine-57.vercel.app/${post.thumbnail}" alt="${post.title}"&gt;
           &lt;h3&gt;${post.title}&lt;/h3&gt;
           &lt;p&gt;${post.excerpt}&lt;/p&gt;
           &lt;div&gt;
@@ -389,7 +389,7 @@ function BlogPosts() {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          'http://localhost:3000/api/public/posts?limit=5'
+          'https://blog-weld-nine-57.vercel.app//api/public/posts?limit=5'
         );
         const data = await response.json();
         
@@ -412,7 +412,7 @@ function BlogPosts() {
     &lt;div&gt;
       {posts.map(post =&gt; (
         &lt;div key={post.id} className="post"&gt;
-          &lt;img src={`http://localhost:3000${post.thumbnail}`} alt={post.title} /&gt;
+          &lt;img src={`https://blog-weld-nine-57.vercel.app/${post.thumbnail}`} alt={post.title} /&gt;
           &lt;h3&gt;{post.title}&lt;/h3&gt;
           &lt;p&gt;{post.excerpt}&lt;/p&gt;
           &lt;div&gt;
