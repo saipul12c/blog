@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">Blog Dashboard</div>
+        <nav>
+          <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/add">Tambah Post</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <div class="container">
+      <div class="dashboard-header">
+        <h1>Daftar Post</h1>
+        <a href="/add" class="btn">Tambah Post Baru</a>
+      </div>
+      
+      <div id="stats-container" class="stats-grid">
+        <!-- Statistik akan dimuat di sini oleh JavaScript -->
+      </div>
+      
+      <div id="posts-container" class="posts-grid">
+        <!-- Posts akan dimuat di sini oleh JavaScript -->
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/app.js"></script>
+  <script>
+    // Fungsi untuk memuat statistik
+    async function loadStats() {
+      try {
+        const response = await fetch('/api/posts');
+        const posts = await response.json();
+        
+        const totalPosts = posts.length;
+        const totalViews = posts.reduce((sum, post) => sum + (post.views || 0), 0);
+        const totalLikes = posts.reduce((sum, post) => sum + (post.likes || 0), 0);
+        const featuredPosts = posts.filter(post => post.featured).length;
+        
+        const statsContainer = document.getElementById('stats-container');
+        statsContainer.innerHTML = `
+          <div class="stat-card">
+            <div class="stat-value">${totalPosts}</div>
+            <div class="stat-label">Total Post</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">${totalViews}</div>
+            <div class="stat-label">Total Views</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">${totalLikes}</div>
+            <div class="stat-label">Total Likes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">${featuredPosts}</div>
+            <div class="stat-label">Featured Posts</div>
+          </div>
+        `;
+      } catch (error) {
+        console.error('Error loading stats:', error);
+      }
+    }
+    
+    // Muat statistik ketika halaman dimuat
+    document.addEventListener('DOMContentLoaded', function() {
+      if (document.getElementById('stats-container')) {
+        loadStats();
+      }
+    });
+  </script>
+</body>
+</html>

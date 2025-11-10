@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Post - Dashboard Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">Blog Dashboard</div>
+        <nav>
+          <ul>
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/add">Tambah Post</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <div class="container">
+      <div class="dashboard-header">
+        <h1>Edit Post</h1>
+        <a href="/" class="btn btn-secondary">Kembali ke Dashboard</a>
+      </div>
+      
+      <div class="form-container">
+        <form id="post-form" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="title">Judul *</label>
+            <input type="text" id="title" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="slug">Slug *</label>
+            <input type="text" id="slug" class="form-control" required>
+            <small>URL-friendly version dari judul (huruf kecil, tanpa spasi)</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="metaTitle">Meta Title</label>
+            <input type="text" id="metaTitle" class="form-control">
+            <small>Judul yang akan ditampilkan di hasil pencarian</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="metaDescription">Meta Description</label>
+            <textarea id="metaDescription" class="form-control"></textarea>
+            <small>Deskripsi singkat untuk hasil pencarian (max 160 karakter)</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="keywords">Keywords (pisahkan dengan koma)</label>
+            <input type="text" id="keywords" class="form-control">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="author">Author *</label>
+              <input type="text" id="author" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="authorAvatar">Avatar Author (URL)</label>
+              <input type="text" id="authorAvatar" class="form-control">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="authorBio">Bio Author</label>
+            <textarea id="authorBio" class="form-control"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="authorLink">Link Author</label>
+            <input type="text" id="authorLink" class="form-control">
+          </div>
+          
+          <!-- Thumbnail -->
+          <div class="form-group">
+            <label>Thumbnail *</label>
+            <div class="upload-option" data-field="thumbnail">
+              <div class="upload-option-buttons">
+                <button type="button" class="upload-option-btn active" data-option="upload">Upload File</button>
+                <button type="button" class="upload-option-btn" data-option="url">Gunakan URL</button>
+              </div>
+              
+              <div id="thumbnailUpload">
+                <div class="upload-area" data-field="thumbnail">
+                  <div class="upload-icon">📁</div>
+                  <div class="upload-text">Klik untuk memilih file atau drag & drop di sini</div>
+                  <input type="file" id="thumbnailFile" class="file-input" accept="image/*" style="display: none;">
+                </div>
+                <div id="thumbnailPreview" class="upload-preview"></div>
+              </div>
+              
+              <div id="thumbnailUrl" class="url-input hidden">
+                <input type="text" id="thumbnailUrl" class="form-control" placeholder="https://example.com/image.jpg">
+                <div id="thumbnailPreview" class="upload-preview"></div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Image Full -->
+          <div class="form-group">
+            <label>Gambar Utama</label>
+            <div class="upload-option" data-field="imageFull">
+              <div class="upload-option-buttons">
+                <button type="button" class="upload-option-btn active" data-option="upload">Upload File</button>
+                <button type="button" class="upload-option-btn" data-option="url">Gunakan URL</button>
+              </div>
+              
+              <div id="imageFullUpload">
+                <div class="upload-area" data-field="imageFull">
+                  <div class="upload-icon">📁</div>
+                  <div class="upload-text">Klik untuk memilih file atau drag & drop di sini</div>
+                  <input type="file" id="imageFullFile" class="file-input" accept="image/*" style="display: none;">
+                </div>
+                <div id="imageFullPreview" class="upload-preview"></div>
+              </div>
+              
+              <div id="imageFullUrl" class="url-input hidden">
+                <input type="text" id="imageFullUrl" class="form-control" placeholder="https://example.com/image.jpg">
+                <div id="imageFullPreview" class="upload-preview"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="category">Kategori *</label>
+            <input type="text" id="category" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="tags">Tags (pisahkan dengan koma)</label>
+            <input type="text" id="tags" class="form-control">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="readTime">Waktu Baca</label>
+              <input type="text" id="readTime" class="form-control" placeholder="5 menit">
+            </div>
+            
+            <div class="form-group">
+              <label for="wordCount">Jumlah Kata</label>
+              <input type="number" id="wordCount" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="readingLevel">Tingkat Kesulitan</label>
+              <select id="readingLevel" class="form-control">
+                <option value="mudah">Mudah</option>
+                <option value="menengah">Menengah</option>
+                <option value="sulit">Sulit</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="featured">
+              <label for="featured">Featured Post</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="excerpt">Excerpt</label>
+            <textarea id="excerpt" class="form-control"></textarea>
+            <small>Ringkasan singkat untuk ditampilkan di daftar post</small>
+          </div>
+          
+          <div class="form-group">
+            <label for="content">Konten *</label>
+            <textarea id="content" class="form-control" required rows="10"></textarea>
+          </div>
+          
+          <!-- Gallery -->
+          <div class="form-group">
+            <label>Galeri</label>
+            <div class="upload-option" data-field="gallery">
+              <div class="upload-option-buttons">
+                <button type="button" class="upload-option-btn active" data-option="upload">Upload File</button>
+                <button type="button" class="upload-option-btn" data-option="url">Gunakan URL</button>
+              </div>
+              
+              <div id="galleryUpload">
+                <div class="upload-area" data-field="gallery">
+                  <div class="upload-icon">📁</div>
+                  <div class="upload-text">Klik untuk memilih file atau drag & drop di sini (bisa multiple)</div>
+                  <input type="file" id="galleryFiles" class="file-input" accept="image/*" multiple style="display: none;">
+                </div>
+                <div id="galleryPreview" class="image-preview-container"></div>
+              </div>
+              
+              <div id="galleryUrl" class="url-input hidden">
+                <input type="text" id="galleryUrls" class="form-control" placeholder="https://example.com/image1.jpg, https://example.com/image2.jpg">
+                <div id="galleryPreview" class="image-preview-container"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="relatedPosts">Post Terkait (slug, pisahkan dengan koma)</label>
+            <input type="text" id="relatedPosts" class="form-control">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="series">Seri</label>
+              <input type="text" id="series" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="source">Sumber</label>
+              <input type="text" id="source" class="form-control">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="language">Bahasa</label>
+              <select id="language" class="form-control">
+                <option value="id">Indonesia</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="canonicalUrl">Canonical URL</label>
+              <input type="text" id="canonicalUrl" class="form-control">
+            </div>
+          </div>
+          
+          <button type="submit" class="btn">Update Post</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/app.js"></script>
+  <script>
+    // Setup click event untuk upload area
+    document.addEventListener('DOMContentLoaded', function() {
+      const uploadAreas = document.querySelectorAll('.upload-area');
+      
+      uploadAreas.forEach(area => {
+        area.addEventListener('click', function() {
+          const field = this.dataset.field;
+          const input = document.getElementById(field + 'File');
+          input.click();
+        });
+      });
+    });
+  </script>
+</body>
+</html>

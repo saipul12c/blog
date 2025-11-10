@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog API Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#F59E0B',
+                        accent: '#EC4899',
+                        dark: '#1F2937',
+                        light: '#F9FAFB'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient': 'gradient 3s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(90deg, #8B5CF6, #EC4899, #F59E0B);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B5CF6, #EC4899, #F59E0B);
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+        
+        .code-block {
+            font-family: 'Courier New', monospace;
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+        
+        .hover-lift {
+            transition: all 0.3s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-pink-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 animate-pulse">Blog API Docs</h1>
+                <p class="text-xl md:text-2xl mb-6 font-light">REST API untuk mengakses data blog secara publik</p>
+                <div class="flex flex-wrap justify-center gap-4 mt-8">
+                    <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-bolt mr-2"></i> Super Fast
+                    </span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-lock-open mr-2"></i> No Auth Required
+                    </span>
+                    <span class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-code mr-2"></i> Easy Integration
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating elements -->
+        <div class="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
+        <div class="absolute bottom-10 right-10 w-16 h-16 bg-white/10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-12 h-12 bg-white/10 rounded-full animate-float" style="animation-delay: 4s;"></div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Overview Section -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-8 hover-lift glow">
+            <div class="flex items-center mb-4">
+                <span class="emoji">📚</span>
+                <h2 class="text-2xl font-bold gradient-text">Overview</h2>
+            </div>
+            <p class="text-gray-700 mb-4">API ini menyediakan akses ke konten blog yang bisa digunakan oleh aplikasi eksternal. Semua endpoint bersifat read-only dan terbuka untuk umum.</p>
+            
+            <div class="bg-gray-100 p-4 rounded-xl mt-4">
+                <div class="flex items-center">
+                    <span class="text-green-500 mr-2"><i class="fas fa-link"></i></span>
+                    <strong class="mr-2">Base URL:</strong>
+                    <code class="bg-gray-200 px-2 py-1 rounded">http://localhost:3000/api/public</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Section -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-8 hover-lift">
+            <div class="flex items-center mb-4">
+                <span class="emoji">🔑</span>
+                <h2 class="text-2xl font-bold gradient-text">Authentication</h2>
+            </div>
+            <div class="flex items-center bg-green-50 p-4 rounded-xl border border-green-200">
+                <span class="text-green-500 text-xl mr-3"><i class="fas fa-check-circle"></i></span>
+                <p class="text-green-800">Tidak diperlukan authentication untuk mengakses API public. Semua endpoint terbuka untuk umum.</p>
+            </div>
+        </section>
+
+        <!-- Endpoints Section -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-8 hover-lift">
+            <div class="flex items-center mb-6">
+                <span class="emoji">📝</span>
+                <h2 class="text-2xl font-bold gradient-text">Endpoints</h2>
+            </div>
+
+            <!-- Get All Posts -->
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-2xl mb-6 border border-purple-100">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="method get px-3 py-1 rounded-full text-white font-bold">GET</span>
+                    <span class="font-bold text-lg">/posts</span>
+                </div>
+                <div class="bg-gray-800 text-gray-100 p-4 rounded-xl font-mono mb-4">
+                    http://localhost:3000/api/public/posts
+                </div>
+                <p class="text-gray-700 mb-4">Mendapatkan daftar post dengan pagination dan filtering.</p>
+
+                <h3 class="text-lg font-semibold mb-3 flex items-center">
+                    <i class="fas fa-list mr-2 text-purple-500"></i> Query Parameters
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="p-3 text-left font-semibold">Parameter</th>
+                                <th class="p-3 text-left font-semibold">Type</th>
+                                <th class="p-3 text-left font-semibold">Default</th>
+                                <th class="p-3 text-left font-semibold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-3">page</td>
+                                <td class="p-3">number</td>
+                                <td class="p-3">1</td>
+                                <td class="p-3">Halaman yang diminta</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-3">limit</td>
+                                <td class="p-3">number</td>
+                                <td class="p-3">10</td>
+                                <td class="p-3">Jumlah post per halaman</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-3">category</td>
+                                <td class="p-3">string</td>
+                                <td class="p-3">-</td>
+                                <td class="p-3">Filter berdasarkan kategori</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-3">tag</td>
+                                <td class="p-3">string</td>
+                                <td class="p-3">-</td>
+                                <td class="p-3">Filter berdasarkan tag</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-3">featured</td>
+                                <td class="p-3">boolean</td>
+                                <td class="p-3">-</td>
+                                <td class="p-3">Filter post featured (true/false)</td>
+                            </tr>
+                            <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                <td class="p-3">sort</td>
+                                <td class="p-3">string</td>
+                                <td class="p-3">date_desc</td>
+                                <td class="p-3">Sorting: date_desc, date_asc, views_desc, likes_desc</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="text-lg font-semibold mt-6 mb-3 flex items-center">
+                    <i class="fas fa-code mr-2 text-purple-500"></i> Contoh Response
+                </h3>
+                <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
+                    <pre class="code-block text-sm"><code>{
+  "success": true,
+  "data": [
+    {
+      "id": "1",
+      "slug": "tips-fotografi-pemula",
+      "title": "Tips Fotografi untuk Pemula",
+      "excerpt": "Pelajari dasar-dasar fotografi...",
+      "thumbnail": "/uploads/thumbnails/image.jpg",
+      "category": "Fotografi",
+      "author": "Raka Pratama",
+      "date": "2025-10-10",
+      "views": 1568,
+      "likes": 345
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "total": 25,
+    "totalPages": 3
+  }
+}</code></pre>
+                </div>
+
+                <h3 class="text-lg font-semibold mt-6 mb-3 flex items-center">
+                    <i class="fas fa-laptop-code mr-2 text-purple-500"></i> Contoh Penggunaan
+                </h3>
+                <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
+                    <pre class="code-block text-sm"><code>// JavaScript
+fetch('http://localhost:3000/api/public/posts?page=1&limit=5&category=Fotografi')
+  .then(response => response.json())
+  .then(data => console.log(data));
+
+// jQuery
+$.getJSON('http://localhost:3000/api/public/posts', {
+  page: 1,
+  limit: 5,
+  category: 'Fotografi'
+}, function(data) {
+  console.log(data);
+});</code></pre>
+                </div>
+            </div>
+
+            <!-- Get Single Post -->
+            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-2xl mb-6 border border-blue-100">
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                    <span class="method get px-3 py-1 rounded-full text-white font-bold">GET</span>
+                    <span class="font-bold text-lg">/posts/:slug</span>
+                </div>
+                <div class="bg-gray-800 text-gray-100 p-4 rounded-xl font-mono mb-4">
+                    http://localhost:3000/api/public/posts/tips-fotografi-pemula
+                </div>
+                <p class="text-gray-700 mb-4">Mendapatkan detail post berdasarkan slug.</p>
+
+                <h3 class="text-lg font-semibold mb-3 flex items-center">
+                    <i class="fas fa-code mr-2 text-blue-500"></i> Contoh Response
+                </h3>
+                <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
+                    <pre class="code-block text-sm"><code>{
+  "success": true,
+  "data": {
+    "id": "1",
+    "slug": "tips-fotografi-pemula",
+    "title": "Tips Fotografi untuk Pemula",
+    "content": "Fotografi bukan hanya tentang...",
+    "thumbnail": "/uploads/thumbnails/image.jpg",
+    "imageFull": "/uploads/full-images/image-large.jpg",
+    "category": "Fotografi",
+    "tags": ["fotografi", "pemula", "tutorial"],
+    "author": "Raka Pratama",
+    "authorBio": "Fotografer freelance...",
+    "date": "2025-10-10",
+    "readTime": "7 menit",
+    "views": 1568,
+    "likes": 345,
+    "comments": [...]
+  }
+}</code></pre>
+                </div>
+            </div>
+
+            <!-- Other endpoints in a grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-4 rounded-xl border border-green-100 text-center hover-lift">
+                    <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
+                        <span class="method get px-3 py-1 rounded-full text-white font-bold">GET</span>
+                        <span class="font-bold">/categories</span>
+                    </div>
+                    <p class="text-gray-700">Mendapatkan daftar kategori beserta statistik.</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 p-4 rounded-xl border border-yellow-100 text-center hover-lift">
+                    <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
+                        <span class="method get px-3 py-1 rounded-full text-white font-bold">GET</span>
+                        <span class="font-bold">/authors</span>
+                    </div>
+                    <p class="text-gray-700">Mendapatkan daftar author beserta statistik.</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-red-50 to-pink-50 p-4 rounded-xl border border-red-100 text-center hover-lift">
+                    <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
+                        <span class="method get px-3 py-1 rounded-full text-white font-bold">GET</span>
+                        <span class="font-bold">/stats</span>
+                    </div>
+                    <p class="text-gray-700">Mendapatkan statistik keseluruhan blog.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation Examples -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-8 hover-lift">
+            <div class="flex items-center mb-6">
+                <span class="emoji">🛠️</span>
+                <h2 class="text-2xl font-bold gradient-text">Contoh Implementasi</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-5 rounded-xl border border-purple-100">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fab fa-html5 mr-2 text-orange-500"></i> HTML + JavaScript Sederhana
+                    </h3>
+                    <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
+                        <pre class="code-block text-xs"><code>&lt;div id="blog-posts"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+async function loadBlogPosts() {
+  try {
+    const response = await fetch('http://localhost:3000/api/public/posts?limit=3');
+    const data = await response.json();
+    
+    if (data.success) {
+      const container = document.getElementById('blog-posts');
+      container.innerHTML = data.data.map(post =&gt; `
+        &lt;div class="post"&gt;
+          &lt;img src="http://localhost:3000${post.thumbnail}" alt="${post.title}"&gt;
+          &lt;h3&gt;${post.title}&lt;/h3&gt;
+          &lt;p&gt;${post.excerpt}&lt;/p&gt;
+          &lt;div&gt;
+            &lt;span&gt;${post.author}&lt;/span&gt; • 
+            &lt;span&gt;${post.date}&lt;/span&gt; •
+            &lt;span&gt;${post.views} views&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      `).join('');
+    }
+  } catch (error) {
+    console.error('Error loading posts:', error);
+  }
+}
+
+loadBlogPosts();
+&lt;/script&gt;</code></pre>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-5 rounded-xl border border-blue-100">
+                    <h3 class="text-lg font-semibold mb-3 flex items-center">
+                        <i class="fab fa-react mr-2 text-blue-400"></i> React Component
+                    </h3>
+                    <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
+                        <pre class="code-block text-xs"><code>import React, { useState, useEffect } from 'react';
+
+function BlogPosts() {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(
+          'http://localhost:3000/api/public/posts?limit=5'
+        );
+        const data = await response.json();
+        
+        if (data.success) {
+          setPosts(data.data);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;
+
+  return (
+    &lt;div&gt;
+      {posts.map(post =&gt; (
+        &lt;div key={post.id} className="post"&gt;
+          &lt;img src={`http://localhost:3000${post.thumbnail}`} alt={post.title} /&gt;
+          &lt;h3&gt;{post.title}&lt;/h3&gt;
+          &lt;p&gt;{post.excerpt}&lt;/p&gt;
+          &lt;div&gt;
+            By {post.author} • {post.date} • {post.views} views
+          &lt;/div&gt;
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+
+export default BlogPosts;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORS Section -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-8 hover-lift">
+            <div class="flex items-center mb-4">
+                <span class="emoji">🔗</span>
+                <h2 class="text-2xl font-bold gradient-text">CORS Support</h2>
+            </div>
+            <p class="text-gray-700 mb-4">API ini mendukung CORS (Cross-Origin Resource Sharing), sehingga bisa diakses dari domain mana pun.</p>
+            
+            <div class="bg-gray-900 text-gray-100 p-4 rounded-xl overflow-x-auto">
+                <pre class="code-block text-sm"><code>Headers:
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET, OPTIONS
+Access-Control-Allow-Headers: Content-Type, Authorization</code></pre>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section class="bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl shadow-lg p-6 mb-8 text-center">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold mb-4">Punya Pertanyaan?</h2>
+                <p class="mb-6">Untuk pertanyaan atau masalah terkait API, silakan hubungi administrator.</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-envelope mr-2"></i> Email Support
+                    </a>
+                    <a href="#" class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-github mr-2"></i> GitHub Issues
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4">Dibuat dengan <i class="fas fa-heart text-red-500 mx-1"></i> untuk developer</p>
+            <div class="flex justify-center space-x-6 text-xl">
+                <a href="#" class="hover:text-purple-400 transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-purple-400 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-purple-400 transition-colors"><i class="fab fa-discord"></i></a>
+                <a href="#" class="hover:text-purple-400 transition-colors"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click animation to method badges
+            const methodBadges = document.querySelectorAll('.method');
+            methodBadges.forEach(badge => {
+                badge.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+            
+            // Add copy functionality to code blocks
+            const codeBlocks = document.querySelectorAll('.code-block');
+            codeBlocks.forEach(block => {
+                block.addEventListener('click', function() {
+                    const text = this.innerText;
+                    navigator.clipboard.writeText(text).then(() => {
+                        // Show copied notification
+                        const notification = document.createElement('div');
+                        notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg';
+                        notification.textContent = 'Kode disalin!';
+                        document.body.appendChild(notification);
+                        
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+[
+  {
+    "id": "1",
+    "slug": "tips-fotografi-pemula",
+    "url": "/blog/tips-fotografi-pemula",
+    "title": "Tips Fotografi untuk Pemula: Panduan Lengkap dari Nol",
+    "metaTitle": "Panduan Fotografi Pemula | Belajar Kamera dari Nol",
+    "metaDescription": "Pelajari dasar-dasar fotografi mulai dari pengaturan kamera, komposisi, dan pencahayaan agar hasil jepretanmu tampak profesional.",
+    "keywords": [
+      "fotografi",
+      "kamera",
+      "pemula",
+      "tutorial",
+      "exposure"
+    ],
+    "author": "Raka Pratama",
+    "authorAvatar": "/images/authors/raka.jpg",
+    "authorBio": "Fotografer freelance dan pengajar fotografi dasar di komunitas seni visual Jakarta.",
+    "authorLink": "/authors/raka-pratama",
+    "date": "2025-10-10",
+    "updatedAt": "2025-10-15",
+    "status": "published",
+    "thumbnail": "/images/blog1.jpg",
+    "imageFull": "/images/blog1-large.jpg",
+    "coverVideo": "",
+    "category": "Fotografi",
+    "tags": [
+      "fotografi",
+      "kamera",
+      "pemula",
+      "tutorial",
+      "exposure"
+    ],
+    "readTime": "7 menit",
+    "wordCount": 1275,
+    "readingLevel": "mudah",
+    "views": 1569,
+    "likes": 345,
+    "shares": 94,
+    "featured": true,
+    "rating": 4.8,
+    "excerpt": "Pelajari dasar-dasar fotografi mulai dari pengaturan kamera, komposisi, hingga pencahayaan untuk menghasilkan foto profesional.",
+    "content": "Fotografi bukan hanya tentang menekan tombol shutter — tetapi seni menangkap cahaya dan momen dengan makna. Untuk menghasilkan foto yang menarik, kamu perlu memahami tiga pilar utama fotografi: **aperture**, **shutter speed**, dan **ISO**, yang disebut juga sebagai *exposure triangle*.\n\n### 1. Aperture (Bukaan Lensa)\nAperture menentukan seberapa banyak cahaya yang masuk ke sensor kamera. Semakin kecil angka f/ (misalnya f/1.8), semakin besar bukaan dan semakin kabur latar belakang (efek bokeh). Gunakan aperture besar untuk foto potret, dan aperture kecil (f/8 ke atas) untuk foto landscape agar semuanya tampak tajam.\n\n### 2. Shutter Speed (Kecepatan Rana)\nShutter speed mengatur berapa lama sensor kamera terbuka untuk menangkap cahaya. Semakin cepat (1/1000 detik), semakin beku gerakan objek. Gunakan kecepatan tinggi untuk olahraga dan hewan, atau kecepatan lambat untuk foto malam atau efek gerak (*motion blur*).\n\n### 3. ISO (Sensitivitas Sensor)\nISO mengatur sensitivitas kamera terhadap cahaya. Nilai ISO rendah (100–400) cocok untuk kondisi terang, sementara ISO tinggi (1600 ke atas) membantu di tempat gelap, meski dapat menimbulkan noise. Kuncinya: gunakan ISO serendah mungkin dengan hasil tetap terang.\n\n### 4. Komposisi dan Perspektif\nSelain pengaturan teknis, komposisi menentukan seberapa kuat pesan visual foto. Gunakan prinsip *Rule of Thirds* untuk menempatkan subjek di titik kuat visual. Bereksperimenlah dengan *leading lines*, *symmetry*, dan *negative space* untuk menambah kedalaman dan keseimbangan.\n\n### 5. Pencahayaan dan Waktu Pemotretan\nCahaya adalah elemen paling penting. Gunakan *golden hour* (sekitar pukul 6 pagi atau 5 sore) untuk cahaya hangat alami. Hindari sinar tengah hari yang terlalu keras. Jika perlu, gunakan reflektor atau lampu tambahan untuk hasil yang lebih lembut.\n\n### 6. Latihan dan Evaluasi\nFotografi adalah proses tanpa akhir. Cobalah berbagai mode kamera — *Manual*, *Aperture Priority*, dan *Shutter Priority* — untuk memahami efeknya. Analisis hasil jepretanmu, pelajari kesalahan, dan terus eksplorasi.\n\n### Kesimpulan\nDengan memahami dasar-dasar ini, kamu tidak hanya mengambil foto, tapi juga menciptakan karya visual yang bercerita dan menggugah emosi.",
+    "gallery": [
+      "/images/blog1-1.jpg",
+      "/images/blog1-2.jpg"
+    ],
+    "comments": [
+      {
+        "commentId": "cmt-001",
+        "name": "Andi Saputra",
+        "date": "2025-10-11",
+        "message": "Artikelnya sangat membantu! Sekarang saya lebih paham cara menggunakan aperture dan shutter speed."
+      },
+      {
+        "commentId": "cmt-002",
+        "name": "Melisa",
+        "date": "2025-10-12",
+        "message": "Suka banget dengan penjelasan tentang golden hour! Terima kasih ilmunya 🙌"
+      }
+    ],
+    "commentCount": 2,
+    "relatedPosts": [
+      "mengenal-ui-ux-design",
+      "strategi-branding-di-media-sosial"
+    ],
+    "series": "Fotografi Dasar",
+    "source": "Blog Pribadi",
+    "language": "id",
+    "translations": {
+      "en": "beginner-photography-tips"
+    },
+    "canonicalUrl": "https://example.com/blog/tips-fotografi-pemula"
+  },
+  {
+    "id": "2",
+    "slug": "cara-mengelola-proyek-digital",
+    "url": "/blog/cara-mengelola-proyek-digital",
+    "title": "Cara Efektif Mengelola Proyek Digital di Era Modern",
+    "metaTitle": "Manajemen Proyek Digital Efektif | Strategi Kolaborasi Modern",
+    "metaDescription": "Pelajari cara mengelola proyek digital secara efisien dengan tools kolaboratif, komunikasi efektif, dan perencanaan yang adaptif.",
+    "keywords": [
+      "manajemen",
+      "proyek",
+      "digital",
+      "kolaborasi",
+      "tim"
+    ],
+    "author": "Tim Kreatif",
+    "authorAvatar": "/images/authors/team.jpg",
+    "authorBio": "Tim kreatif dari StudioTech yang berfokus pada pengembangan produk digital dan strategi manajemen proyek inovatif.",
+    "authorLink": "/authors/tim-kreatif",
+    "date": "2025-09-28",
+    "updatedAt": "2025-11-09",
+    "status": "published",
+    "thumbnail": "/images/blog2.jpg",
+    "imageFull": "/images/blog2-large.jpg",
+    "category": "Manajemen Proyek",
+    "tags": [
+      "manajemen",
+      "digital",
+      "kolaborasi",
+      "tim",
+      "produktivitas"
+    ],
+    "readTime": "6 menit",
+    "wordCount": 1180,
+    "readingLevel": "menengah",
+    "views": 2185,
+    "likes": 421,
+    "shares": 102,
+    "featured": false,
+    "rating": 4.7,
+    "excerpt": "Manajemen proyek digital membutuhkan komunikasi efektif, kolaborasi lintas tim, dan pemanfaatan tools modern untuk hasil maksimal.",
+    "content": "Dalam dunia kerja modern, proyek digital menuntut adaptabilitas tinggi dan kolaborasi lintas disiplin. Mengelola proyek secara efektif berarti menggabungkan teknologi, strategi, dan kepemimpinan.\n\n1. Tetapkan Tujuan dan Ruang Lingkup yang Jelas\nSetiap proyek harus dimulai dengan definisi yang jelas tentang hasil akhir, batas waktu, dan tanggung jawab tim. Dokumen *scope of work* membantu semua pihak memiliki persepsi yang sama.\n\n2. Gunakan Tools Kolaboratif\nManfaatkan alat seperti **Notion**, **Trello**, atau **Asana** untuk mengatur tugas dan komunikasi. Integrasikan dengan Slack atau Google Workspace agar koordinasi lintas tim berjalan lancar.\n\n3. Terapkan Metode Agile atau Scrum\nGunakan *sprint planning* dan *daily stand-up* untuk menjaga ritme kerja. Dengan metode ini, tim bisa menyesuaikan prioritas dan merespons perubahan dengan cepat.\n\n4. Komunikasi Transparan dan Rutin\nPertemuan mingguan atau laporan kemajuan digital membantu menjaga kejelasan progres. Gunakan dashboard untuk menampilkan status proyek secara visual.\n\n5. Evaluasi dan Retrospektif\nSetelah proyek selesai, lakukan evaluasi untuk mengidentifikasi keberhasilan dan area perbaikan. Dokumentasikan pembelajaran agar bisa diterapkan di proyek berikutnya.\n\nDengan pendekatan yang disiplin dan alat yang tepat, manajemen proyek digital dapat berjalan efisien, transparan, dan menghasilkan dampak nyata bagi tim maupun klien.",
+    "gallery": [
+      "/images/blog2-1.jpg"
+    ],
+    "comments": [
+      {
+        "commentId": "cmt-003",
+        "name": "Yoga Mahendra",
+        "date": "2025-09-30",
+        "message": "Artikel yang bagus! Saya langsung mencoba pakai Notion untuk tim saya."
+      }
+    ],
+    "commentCount": 1,
+    "relatedPosts": [
+      "strategi-branding-di-media-sosial"
+    ],
+    "series": "Digital Productivity",
+    "source": "StudioTech Blog",
+    "language": "id",
+    "translations": {
+      "en": "managing-digital-projects"
+    },
+    "canonicalUrl": "https://example.com/blog/cara-mengelola-proyek-digital"
+  },
+  {
+    "id": "3",
+    "slug": "mengenal-ui-ux-design",
+    "url": "/blog/mengenal-ui-ux-design",
+    "title": "Mengenal UI/UX Design: Kunci Sukses Produk Digital",
+    "metaTitle": "Pengenalan UI/UX Design | Membangun Pengalaman Pengguna",
+    "metaDescription": "UI/UX design berperan penting dalam kesuksesan produk digital. Pelajari riset pengguna, wireframe, prototipe, dan pengujian desain.",
+    "keywords": [
+      "UI",
+      "UX",
+      "desain",
+      "pengalaman pengguna",
+      "prototipe"
+    ],
+    "author": "Nadia Kurnia",
+    "authorAvatar": "/images/authors/nadia.jpg",
+    "authorBio": "UI/UX Designer berpengalaman dengan 5 tahun di bidang riset pengguna dan desain produk digital.",
+    "authorLink": "/authors/nadia-kurnia",
+    "date": "2025-08-15",
+    "updatedAt": "2025-08-20",
+    "status": "published",
+    "thumbnail": "/images/blog3.jpg",
+    "imageFull": "/images/blog3-large.jpg",
+    "category": "Desain Digital",
+    "tags": [
+      "UI",
+      "UX",
+      "rancang antarmuka",
+      "pengalaman pengguna",
+      "prototipe"
+    ],
+    "readTime": "8 menit",
+    "wordCount": 1390,
+    "readingLevel": "menengah",
+    "views": 1940,
+    "likes": 312,
+    "shares": 74,
+    "featured": false,
+    "rating": 4.7,
+    "excerpt": "UI/UX design bukan sekadar tampilan, melainkan keseluruhan pengalaman pengguna. Pelajari konsep, riset, dan pengujian desain produk digital.",
+    "content": "UI (User Interface) dan UX (User Experience) adalah dua elemen utama dalam membangun produk digital yang sukses. UI berfokus pada tampilan visual dan interaksi, sementara UX memastikan pengguna merasa nyaman dan tujuan mereka tercapai.\n\n### 1. Riset Pengguna (User Research)\nLangkah pertama dalam UX adalah memahami kebutuhan dan perilaku pengguna. Gunakan survei, wawancara, atau observasi untuk mengetahui masalah nyata yang mereka hadapi.\n\n### 2. Pembuatan Wireframe dan Prototipe\nGunakan tools seperti **Figma** atau **Adobe XD** untuk membuat struktur halaman (wireframe) dan simulasi interaksi (prototipe). Tahapan ini membantu tim memahami alur sebelum desain final.\n\n### 3. Uji Desain dengan Pengguna\nLakukan *usability testing* untuk melihat apakah pengguna dapat menyelesaikan tugas tanpa kebingungan. Kumpulkan umpan balik dan iterasi desain hingga optimal.\n\n### 4. Kolaborasi Lintas Tim\nDesainer, developer, dan product manager harus bekerja selaras agar hasil akhir sesuai kebutuhan bisnis dan pengguna.\n\n### Kesimpulan\nDesain UI/UX bukan hanya soal estetika, tapi tentang menciptakan pengalaman yang menyenangkan, efisien, dan bermakna bagi pengguna.",
+    "gallery": [
+      "/images/blog3-1.jpg",
+      "/images/blog3-2.jpg"
+    ],
+    "comments": [],
+    "commentCount": 0,
+    "relatedPosts": [
+      "cara-mengelola-proyek-digital"
+    ],
+    "series": "Desain Produk Digital",
+    "source": "Digital Studio Magazine",
+    "language": "id",
+    "translations": {
+      "en": "understanding-ui-ux-design"
+    },
+    "canonicalUrl": "https://example.com/blog/mengenal-ui-ux-design"
+  },
+  {
+    "id": "4",
+    "slug": "strategi-branding-di-media-sosial",
+    "url": "/blog/strategi-branding-di-media-sosial",
+    "title": "Strategi Branding di Media Sosial untuk Meningkatkan Engagement",
+    "metaTitle": "Strategi Branding Media Sosial | Bangun Engagement Bisnis",
+    "metaDescription": "Pelajari cara meningkatkan brand awareness dan engagement melalui strategi konten, interaksi, dan analitik media sosial.",
+    "keywords": [
+      "branding",
+      "media sosial",
+      "strategi",
+      "bisnis",
+      "engagement"
+    ],
+    "author": "Anisa Putri",
+    "authorAvatar": "/images/authors/anisa.jpg",
+    "authorBio": "Digital marketing specialist yang fokus pada strategi brand dan konten kreatif untuk berbagai bisnis lokal.",
+    "authorLink": "/authors/anisa-putri",
+    "date": "2025-07-05",
+    "updatedAt": "2025-07-07",
+    "status": "published",
+    "thumbnail": "/images/blog4.jpg",
+    "imageFull": "/images/blog4-large.jpg",
+    "category": "Marketing",
+    "tags": [
+      "branding",
+      "media sosial",
+      "strategi",
+      "bisnis",
+      "engagement"
+    ],
+    "readTime": "9 menit",
+    "wordCount": 1475,
+    "readingLevel": "mudah",
+    "views": 2498,
+    "likes": 552,
+    "shares": 120,
+    "featured": true,
+    "rating": 4.9,
+    "excerpt": "Media sosial menjadi alat utama membangun brand awareness. Pelajari strategi efektif untuk meningkatkan engagement dan loyalitas pelanggan.",
+    "content": "Branding di media sosial bukan hanya tentang desain visual yang menarik, tetapi tentang membangun kepercayaan dan hubungan emosional dengan audiens.\n\n### 1. Tentukan Identitas Merek yang Konsisten\nGunakan warna, tone of voice, dan gaya visual yang sama di setiap platform agar audiens mudah mengenali identitas brand-mu.\n\n### 2. Fokus pada Nilai, Bukan Hanya Produk\nCeritakan kisah, nilai, atau inspirasi di balik brand. Audiens cenderung lebih terhubung dengan merek yang memiliki kepribadian dan misi yang jelas.\n\n### 3. Gunakan Konten Interaktif\nKonten seperti polling, kuis, video pendek, atau sesi live bisa meningkatkan interaksi. Konsistensi dan kreativitas adalah kunci.\n\n### 4. Analisis Performa\nGunakan insight dari Instagram, TikTok, atau X (Twitter) untuk mengukur efektivitas strategi. Evaluasi engagement rate dan sesuaikan konten berdasarkan data.\n\n### 5. Kolaborasi dengan Influencer\nKerja sama dengan kreator yang relevan dapat memperluas jangkauan audiens dan meningkatkan kredibilitas brand.\n\n### Kesimpulan\nStrategi branding di media sosial adalah perjalanan membangun kepercayaan jangka panjang. Dengan konten yang autentik, konsisten, dan bernilai, bisnismu bisa tumbuh bersama komunitasnya.",
+    "gallery": [
+      "/images/blog4-1.jpg"
+    ],
+    "comments": [
+      {
+        "commentId": "cmt-004",
+        "name": "Rafi Ardian",
+        "date": "2025-07-06",
+        "message": "Strateginya bisa langsung saya terapkan di akun bisnis saya. Terima kasih!"
+      }
+    ],
+    "commentCount": 1,
+    "relatedPosts": [
+      "cara-mengelola-proyek-digital"
+    ],
+    "series": "Digital Marketing",
+    "source": "Marketing Insight Blog",
+    "language": "id",
+    "translations": {
+      "en": "social-media-branding-strategy"
+    },
+    "canonicalUrl": "https://example.com/blog/strategi-branding-di-media-sosial"
+  }
+]
