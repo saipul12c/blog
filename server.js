@@ -79,6 +79,55 @@ function readData() {
   }
 }
 
+// =============================================
+// API PUBLIC ROUTES - Bisa diakses oleh semua orang
+// =============================================
+
+// GET /api/public - Root endpoint untuk API public
+app.get('/api/public', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Blog Public API',
+    version: '1.0',
+    endpoints: {
+      posts: {
+        method: 'GET',
+        path: '/api/public/posts',
+        description: 'Mendapatkan daftar post dengan pagination dan filtering',
+        queryParams: [
+          'page (number) - Halaman yang diminta',
+          'limit (number) - Jumlah post per halaman',
+          'category (string) - Filter berdasarkan kategori',
+          'tag (string) - Filter berdasarkan tag',
+          'featured (boolean) - Filter post featured',
+          'sort (string) - Sorting: date_desc, date_asc, views_desc, likes_desc'
+        ]
+      },
+      postBySlug: {
+        method: 'GET',
+        path: '/api/public/posts/:slug',
+        description: 'Mendapatkan detail post berdasarkan slug'
+      },
+      categories: {
+        method: 'GET',
+        path: '/api/public/categories',
+        description: 'Mendapatkan daftar kategori beserta statistik'
+      },
+      authors: {
+        method: 'GET',
+        path: '/api/public/authors',
+        description: 'Mendapatkan daftar authors beserta statistik'
+      },
+      stats: {
+        method: 'GET',
+        path: '/api/public/stats',
+        description: 'Mendapatkan statistik keseluruhan blog'
+      }
+    },
+    documentation: '/docs'
+  });
+});
+
 function writeData(data) {
   try {
     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2));
