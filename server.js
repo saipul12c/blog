@@ -187,8 +187,8 @@ app.get('/api/public/authors', async (req, res) => {
     const firstPost = posts.find(p => p.author === name);
     return {
       name: name,
-      avatar: firstPost.authorAvatar || '/images/authors/default.jpg',
-      bio: firstPost.authorBio || '',
+      avatar: firstPost?.authorAvatar || '/images/authors/default.jpg',
+      bio: firstPost?.authorBio || '',
       postCount: posts.filter(p => p.author === name).length
     };
   });
