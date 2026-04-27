@@ -8,9 +8,11 @@ const xss = require('xss');
 
 const app = express();
 const PORT = 3000;
-const DATA_DIR = path.join(__dirname, 'data');
+
+// Path configuration for Vercel compatibility
+const DATA_DIR = path.join(process.cwd(), 'data');
 const DATA_FILE = path.join(DATA_DIR, 'data.json');
-const UPLOADS_DIR = path.join(__dirname, 'public', 'uploads');
+const UPLOADS_DIR = path.join(process.cwd(), 'public', 'uploads');
 
 // 1. Layer Keamanan: Security Headers
 app.use(helmet({
@@ -41,6 +43,9 @@ const apiPublicLimiter = rateLimit({
 
 app.use('/api/', generalLimiter);
 app.use('/api/public/', apiPublicLimiter);
+
+// 3. Trust Proxy for Vercel
+app.set('trust proxy', 1);
 
 // Middleware
 app.use(express.json());
@@ -76,14 +81,14 @@ function slugify(text) {
 // =============================================
 
 // Halaman Statis
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.get('/', (req, res) => res.sendFile(path.join(process.cwd(), 'public', 'index.html')));
 app.get('/docs', (req, res) => res.redirect('/docs/index.html'));
 
 
-app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'public', 'about.html')));
-app.get('/faq', (req, res) => res.sendFile(path.join(__dirname, 'public', 'faq.html')));
-app.get('/policy', (req, res) => res.sendFile(path.join(__dirname, 'public', 'policy.html')));
-app.get('/privacy', (req, res) => res.sendFile(path.join(__dirname, 'public', 'privacy.html')));
+app.get('/about', (req, res) => res.sendFile(path.join(process.cwd(), 'public', 'about.html')));
+app.get('/faq', (req, res) => res.sendFile(path.join(process.cwd(), 'public', 'faq.html')));
+app.get('/policy', (req, res) => res.sendFile(path.join(process.cwd(), 'public', 'policy.html')));
+app.get('/privacy', (req, res) => res.sendFile(path.join(process.cwd(), 'public', 'privacy.html')));
 
 // API Internal
 app.get('/api/posts', async (req, res) => {
