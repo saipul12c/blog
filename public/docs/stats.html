@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics API - Blog API Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
+    <div id="sidebar-container"></div>
+
+    <main class="content-wrapper min-h-screen">
+        <header class="bg-white border-b border-slate-200 py-20 px-8 lg:px-20">
+            <div class="max-w-4xl reveal">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Metrics Endpoints</span>
+                <h1 class="text-5xl lg:text-7xl font-black text-slate-900 mb-6 leading-tight">Stats API.</h1>
+                <p class="text-xl text-slate-500 leading-relaxed max-w-2xl font-medium">
+                    Endpoint untuk mendapatkan data statistik performa konten secara real-time.
+                </p>
+            </div>
+        </header>
+
+        <div class="px-8 lg:px-20 py-20 max-w-7xl">
+            <section id="get-stats" class="py-32 mb-32 reveal">
+                <div class="flex items-center gap-4 mb-10">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-xl">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold">Get Stats</h2>
+                </div>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
+                    <div class="space-y-8">
+                        <div class="card p-8 bg-white border-none shadow-xl">
+                            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                                <i class="fas fa-database text-amber-500"></i> Detailed Response Schema
+                            </h4>
+                            <div class="space-y-6">
+                                <div class="pb-4 border-b border-slate-50">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <code class="text-sm font-bold text-slate-700">totalPosts</code>
+                                        <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded">Integer</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Menghitung seluruh artikel yang memiliki status <code class="bg-slate-100 px-1 rounded">published</code>. Data ini ideal untuk menampilkan skala konten pada landing page Anda.</p>
+                                </div>
+                                <div class="pb-4 border-b border-slate-50">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <code class="text-sm font-bold text-slate-700">totalViews</code>
+                                        <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded">Integer</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Jumlah total klik unik pada seluruh artikel. Berguna untuk menunjukkan popularitas blog secara keseluruhan kepada calon sponsor atau pembaca.</p>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-start mb-1">
+                                        <code class="text-sm font-bold text-slate-700">totalLikes</code>
+                                        <span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded">Integer</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Total interaksi positif (like) yang terkumpul. Metrik ini membantu mengukur tingkat keterlibatan (engagement) audiens Anda.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card p-8 bg-blue-50/50 border-2 border-blue-100 border-dashed rounded-3xl">
+                            <h4 class="text-[11px] font-black text-blue-600 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <i class="fas fa-lightbulb"></i> Implementation Guide
+                            </h4>
+                            <ul class="space-y-3 text-xs text-blue-700/80 leading-relaxed list-disc pl-4 font-medium">
+                                <li>Gunakan endpoint ini untuk membuat widget <strong>"Stats Dashboard"</strong> di sidebar aplikasi Anda.</li>
+                                <li>Disarankan menggunakan sistem <strong>Caching</strong> selama 5-10 menit di sisi client untuk menghindari request berlebih karena data ini tidak berubah setiap detik.</li>
+                                <li>Ideal digabungkan dengan library animasi seperti <em>CountUp.js</em> untuk efek visual angka yang bertambah saat halaman dimuat.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container code-block-wrapper overflow-hidden flex flex-col">
+                        <div class="flex bg-white/5 border-b border-white/10 px-4 overflow-x-auto">
+                            <button class="tab-btn active" data-lang="js">JS Fetch</button>
+                            <button class="tab-btn" data-lang="axios">Axios</button>
+                            <button class="tab-btn" data-lang="python">Python</button>
+                            <button class="tab-btn" data-lang="php">PHP</button>
+                            <button class="tab-btn" data-lang="curl">cURL</button>
+                        </div>
+                        <div class="p-8 relative">
+                            <div class="tab-content active" data-lang="js">
+                                <pre class="font-mono text-sm text-cyan-400"><code>fetch('{{BASE_URL}}/api/public/stats')
+  .then(res => res.json())
+  .then(data => console.log(data.data));</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="axios">
+                                <pre class="font-mono text-sm text-cyan-400"><code>const axios = require('axios');
+
+axios.get('{{BASE_URL}}/api/public/stats')
+  .then(res => {
+    const { totalPosts, totalViews } = res.data.data;
+    console.log(`Posts: ${totalPosts}, Views: ${totalViews}`);
+  });</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="python">
+                                <pre class="font-mono text-sm text-cyan-400"><code>import requests
+
+res = requests.get('{{BASE_URL}}/api/public/stats')
+stats = res.json()['data']
+print(f"Total Views: {stats['totalViews']}")</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="php">
+                                <pre class="font-mono text-sm text-cyan-400"><code>&lt;?php
+$data = json_decode(file_get_contents('{{BASE_URL}}/api/public/stats'), true);
+echo "Total Posts: " . $data['data']['totalPosts'];
+?&gt;</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="curl">
+                                <pre class="font-mono text-sm text-cyan-400"><code>curl -X GET "{{BASE_URL}}/api/public/stats"</code></pre>
+                            </div>
+                            <button class="copy-btn absolute top-4 right-4 text-white/30 hover:text-white transition">
+                                <i class="far fa-copy"></i>
+                            </button>
+                            <button class="try-it-btn absolute bottom-4 right-4 bg-primary hover:bg-primary-dark text-white text-[10px] font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-lg shadow-primary/20" data-endpoint="/api/public/stats">
+                                <i class="fas fa-play text-[8px]"></i> TRY IT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playground-result-wrapper hidden mt-12">
+                    <div class="bg-slate-900 rounded-3xl p-8 border border-white/5 shadow-2xl">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Live API Response</span>
+                            </div>
+                            <span class="status-badge status-200">200 OK</span>
+                        </div>
+                        <pre class="font-mono text-sm text-emerald-400 overflow-x-auto"><code></code></pre>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="footer-container"></div>
+    </main>
+
+    <div id="toggle-container"></div>
+
+    <script src="/js/docs-components.js"></script>
+    <script>SharedComponents.init('stats');</script>
+    <script src="/js/app.js"></script>
+    <script src="/js/docs.js"></script>
+</body>
+</html>

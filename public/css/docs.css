@@ -1,0 +1,177 @@
+/**
+ * Blog API Documentation Styles - Premium Design System Update
+ */
+
+:root {
+    --primary: #6366f1;
+    --primary-hover: #4f46e5;
+    --secondary: #a855f7;
+    --dark: #0f172a;
+    --slate: #1e293b;
+    --light: #f8fafc;
+    --border: #e2e8f0;
+}
+
+body {
+    scroll-behavior: smooth;
+    background-color: var(--light);
+}
+
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    border-right: 1px solid var(--border);
+    background: white;
+    z-index: 40;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content-wrapper {
+    margin-left: 300px;
+    background: var(--light);
+}
+
+.sidebar-link {
+    font-weight: 500;
+    font-size: 14px;
+    color: #64748b;
+    padding: 10px 16px;
+    border-radius: 12px;
+    margin-bottom: 4px;
+    display: block;
+    transition: all 0.2s;
+}
+
+.sidebar-link:hover {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.05);
+    padding-left: 20px;
+}
+
+.sidebar-link.active {
+    color: var(--primary);
+    background: rgba(99, 102, 241, 0.1);
+    font-weight: 700;
+}
+
+.method-badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-get { background: rgba(99, 102, 241, 0.1); color: var(--primary); }
+.badge-post { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+.code-block-wrapper {
+    background: #0f172a;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #94a3b8;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    color: white;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-200 { background: #ecfdf5; color: #059669; }
+.status-400 { background: #fef2f2; color: #dc2626; }
+.status-404 { background: #fff7ed; color: #ea580c; }
+.status-429 { background: #fff1f2; color: #e11d48; }
+.status-500 { background: #450a0a; color: #f87171; }
+
+.playground-result-wrapper {
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.playground-result-wrapper pre::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.playground-result-wrapper pre::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.playground-result-wrapper pre::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.playground-result-wrapper pre::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+}
+
+.code-block-wrapper input:focus, 
+.code-block-wrapper select:focus {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .content-wrapper {
+        margin-left: 0;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}

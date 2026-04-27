@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts API - Blog API Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body class="bg-slate-50 font-sans text-slate-900">
+    <div id="sidebar-container"></div>
+
+    <main class="content-wrapper min-h-screen">
+        <header class="bg-white border-b border-slate-200 py-20 px-8 lg:px-20">
+            <div class="max-w-4xl reveal">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Content Endpoints</span>
+                <h1 class="text-5xl lg:text-7xl font-black text-slate-900 mb-6 leading-tight">Posts API.</h1>
+                <p class="text-xl text-slate-500 leading-relaxed max-w-2xl font-medium">
+                    Endpoint untuk mengambil daftar artikel dan detail konten secara mendalam.
+                </p>
+            </div>
+        </header>
+
+        <div class="px-8 lg:px-20 py-20 max-w-7xl">
+            <!-- GET /posts -->
+            <section id="get-posts" class="py-32 mb-32 border-b border-slate-100 reveal">
+                <div class="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="method-badge badge-get">GET</span>
+                            <h3 class="text-3xl font-bold text-slate-900">/posts</h3>
+                        </div>
+                        <p class="text-slate-500 text-lg">Mendapatkan daftar artikel dengan sistem filtrasi dan sorting.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Query Parameters</h4>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">limit</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Membatasi jumlah data yang dikembalikan. Default: 10.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">category</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Filter artikel berdasarkan slug kategori tertentu.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">sort</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Urutan data: <code class="text-xs bg-slate-100 p-1">date_desc</code> (terbaru) atau <code class="text-xs bg-slate-100 p-1">views_desc</code> (terpopuler).</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">tag</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Filter artikel berdasarkan tag tertentu (misal: <code class="text-xs bg-slate-100 p-1">ai</code>).</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">page</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Halaman yang ingin diambil. Default: 1.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">featured</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Gunakan <code class="text-xs bg-slate-100 p-1">true</code> untuk mengambil artikel pilihan saja.</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-primary">
+                            <div class="flex justify-between items-center mb-2">
+                                <code class="text-primary font-bold">q</code>
+                                <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded font-bold uppercase">Optional</span>
+                            </div>
+                            <p class="text-slate-500 text-sm">Pencarian kata kunci pada judul, ringkasan, atau konten artikel.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="tabs-container code-block-wrapper overflow-hidden flex flex-col">
+                            <div class="flex bg-white/5 border-b border-white/10 px-4 overflow-x-auto">
+                                <button class="tab-btn active" data-lang="js">JS Fetch</button>
+                                <button class="tab-btn" data-lang="axios">Axios</button>
+                                <button class="tab-btn" data-lang="python">Python</button>
+                                <button class="tab-btn" data-lang="php">PHP</button>
+                                <button class="tab-btn" data-lang="curl">cURL</button>
+                            </div>
+                            <div class="p-8 relative">
+                                <div class="tab-content active" data-lang="js">
+                                    <pre class="font-mono text-sm"><code class="text-cyan-400 code-js">// Contoh Pencarian
+fetch('{{BASE_URL}}/api/public/posts?q=fotografi')
+  .then(res => res.json())
+  .then(data => console.log(data));</code></pre>
+                                </div>
+                                <div class="tab-content" data-lang="axios">
+                                    <pre class="font-mono text-sm"><code class="text-cyan-400 code-axios">const axios = require('axios');
+
+axios.get('{{BASE_URL}}/api/public/posts', {
+    params: { q: 'fotografi' }
+})
+.then(res => console.log(res.data))
+.catch(err => console.error(err));</code></pre>
+                                </div>
+                                <div class="tab-content" data-lang="python">
+                                    <pre class="font-mono text-sm"><code class="text-cyan-400 code-python">import requests
+
+url = "{{BASE_URL}}/api/public/posts"
+params = {'q': 'fotografi'}
+res = requests.get(url, params=params)
+print(res.json())</code></pre>
+                                </div>
+                                <div class="tab-content" data-lang="php">
+                                    <pre class="font-mono text-sm"><code class="text-cyan-400 code-php">&lt;?php
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "{{BASE_URL}}/api/public/posts?q=fotografi");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($ch);
+curl_close($ch);
+$data = json_decode($response, true);
+print_r($data);
+?&gt;</code></pre>
+                                </div>
+                                <div class="tab-content" data-lang="curl">
+                                    <pre class="font-mono text-sm"><code class="text-cyan-400 code-curl">curl -X GET "{{BASE_URL}}/api/public/posts?q=fotografi" \
+     -H "Accept: application/json"</code></pre>
+                                </div>
+                                <button class="copy-btn absolute top-4 right-4 text-white/30 hover:text-white transition">
+                                    <i class="far fa-copy"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Advanced Playground Editor -->
+                            <div class="bg-white/5 border-t border-white/10 p-6">
+                                <div class="flex flex-wrap gap-4 items-end">
+                                    <div class="flex-1 min-w-[120px]">
+                                        <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Keyword (q)</label>
+                                        <input type="text" id="param-q" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-primary transition" placeholder="e.g. AI">
+                                    </div>
+                                    <div class="flex-1 min-w-[120px]">
+                                        <label class="block text-[10px] font-black text-slate-500 uppercase tracking-widest mb-2">Category</label>
+                                        <input type="text" id="param-category" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-primary transition" placeholder="e.g. tech">
+                                    </div>
+                                    <button class="try-it-btn h-10 bg-primary hover:bg-primary-dark text-white text-[10px] font-bold px-6 rounded-lg transition flex items-center gap-1.5 shadow-lg shadow-primary/20" 
+                                            data-endpoint="/api/public/posts" 
+                                            data-type="dynamic"
+                                            id="btn-run-posts">
+                                        <i class="fas fa-play text-[8px]"></i> RUN API
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="playground-result-wrapper hidden">
+                            <div class="bg-slate-900 rounded-3xl p-6 border border-white/5 relative">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Live Result</span>
+                                    <span class="status-badge status-200">200 OK</span>
+                                </div>
+                                <pre class="font-mono text-xs text-emerald-400 overflow-x-auto max-h-[300px]"><code></code></pre>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        <div class="card p-8 bg-slate-900 border-none shadow-2xl relative overflow-hidden group mb-8">
+                            <h4 class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <i class="fas fa-terminal text-emerald-400"></i> Real-world Usage (JavaScript)
+                            </h4>
+                            <div class="space-y-6">
+                                <div>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-2">01. Handling Base URL & Images</p>
+                                    <pre class="bg-black/30 p-4 rounded-lg font-mono text-[10px] text-blue-300"><code>const API_URL = 'http://localhost:3000';
+const postUrl = `${API_URL}${post.thumbnail}`;</code></pre>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-2">02. Handling Rate Limit (429)</p>
+                                    <pre class="bg-black/30 p-4 rounded-lg font-mono text-[10px] text-rose-300"><code>if (res.status === 429) {
+  alert('Terlalu banyak permintaan. Silakan tunggu 1 menit.');
+}</code></pre>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-slate-500 uppercase font-bold mb-2">03. Pagination "Load More"</p>
+                                    <pre class="bg-black/30 p-4 rounded-lg font-mono text-[10px] text-emerald-300"><code>// Ambil halaman berikutnya
+let currentPage = 1;
+function loadMore() {
+  currentPage++;
+  fetch(`/api/public/posts?page=${currentPage}`);
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GET /posts/:slug -->
+            <section id="get-post-slug" class="py-32 mb-32 border-b border-slate-100 reveal">
+                <div class="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="method-badge badge-get">GET</span>
+                            <h3 class="text-3xl font-bold text-slate-900">/posts/:slug</h3>
+                        </div>
+                        <p class="text-slate-500 text-lg">Mendapatkan detail lengkap satu artikel berdasarkan slug yang unik.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
+                    <div class="tabs-container code-block-wrapper overflow-hidden flex flex-col">
+                        <div class="flex bg-white/5 border-b border-white/10 px-4 overflow-x-auto">
+                            <button class="tab-btn active" data-lang="js">JS Fetch</button>
+                            <button class="tab-btn" data-lang="axios">Axios</button>
+                            <button class="tab-btn" data-lang="curl">cURL</button>
+                        </div>
+                        <div class="p-8 relative">
+                            <div class="tab-content active" data-lang="js">
+                                <pre class="font-mono text-sm text-cyan-400"><code>fetch('{{BASE_URL}}/api/public/posts/tips-fotografi-pemula')
+  .then(res => res.json())
+  .then(data => console.log(data.data));</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="axios">
+                                <pre class="font-mono text-sm text-cyan-400"><code>axios.get('{{BASE_URL}}/api/public/posts/tips-fotografi-pemula')
+  .then(res => console.log(res.data.data));</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="curl">
+                                <pre class="font-mono text-sm text-cyan-400"><code>curl -X GET "{{BASE_URL}}/api/public/posts/tips-fotografi-pemula"</code></pre>
+                            </div>
+                            <button class="copy-btn absolute top-4 right-4 text-white/30 hover:text-white transition">
+                                <i class="far fa-copy"></i>
+                            </button>
+                            <button class="try-it-btn absolute bottom-4 right-4 bg-primary hover:bg-primary-dark text-white text-[10px] font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-lg shadow-primary/20" data-endpoint="/api/public/posts/tips-fotografi-pemula">
+                                <i class="fas fa-play text-[8px]"></i> TRY IT
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="playground-result-wrapper hidden mb-8">
+                        <div class="bg-slate-900 rounded-3xl p-6 border border-white/5 relative">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Live Result</span>
+                                <span class="status-badge status-200">200 OK</span>
+                            </div>
+                            <pre class="font-mono text-xs text-emerald-400 overflow-x-auto max-h-[300px]"><code></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- POST /posts -->
+            <section id="post-posts" class="py-32 mb-32 reveal">
+                <div class="flex flex-col md:flex-row items-start justify-between gap-8 mb-12">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <span class="method-badge badge-post" style="background:#4f46e5; color:white;">POST</span>
+                            <h3 class="text-3xl font-bold text-slate-900">/posts</h3>
+                        </div>
+                        <p class="text-slate-500 text-lg">Membuat artikel baru ke dalam sistem dengan proteksi XSS otomatis.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-6">Request Body (JSON)</h4>
+                        <div class="card p-6 border-l-4 border-l-indigo-500">
+                            <code class="text-indigo-600 font-bold block mb-1">title</code>
+                            <p class="text-slate-500 text-xs">Judul artikel (Akan disanitasi dari script).</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-indigo-500">
+                            <code class="text-indigo-600 font-bold block mb-1">content</code>
+                            <p class="text-slate-500 text-xs">Konten lengkap artikel (Markdown/HTML disanitasi).</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-indigo-500">
+                            <code class="text-indigo-600 font-bold block mb-1">thumbnail</code>
+                            <p class="text-slate-500 text-xs">URL gambar (Misal: https://example.com/image.jpg).</p>
+                        </div>
+                        <div class="card p-6 border-l-4 border-l-indigo-500">
+                            <code class="text-indigo-600 font-bold block mb-1">status</code>
+                            <p class="text-slate-500 text-xs"><code class="bg-slate-100 p-0.5">draft</code> atau <code class="bg-slate-100 p-0.5">published</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="tabs-container code-block-wrapper overflow-hidden flex flex-col">
+                        <div class="flex bg-white/5 border-b border-white/10 px-4">
+                            <button class="tab-btn active" data-lang="js">JS (Fetch)</button>
+                            <button class="tab-btn" data-lang="curl">cURL</button>
+                        </div>
+                        <div class="p-8">
+                            <div class="tab-content active" data-lang="js">
+                                <pre class="font-mono text-sm text-cyan-400"><code>fetch('/api/posts', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    title: 'Judul Baru',
+    content: 'Isi konten...',
+    thumbnail: 'https://images.unsplash.com/photo-123'
+  })
+}).then(res => res.json());</code></pre>
+                            </div>
+                            <div class="tab-content" data-lang="curl">
+                                <pre class="font-mono text-sm text-cyan-400"><code>curl -X POST "{{BASE_URL}}/api/posts" \
+  -H "Content-Type: application/json" \
+  -d '{"title": "Judul Baru", "thumbnail": "https://..."}'</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="footer-container"></div>
+    </main>
+
+    <div id="toggle-container"></div>
+
+    <script src="/js/docs-components.js"></script>
+    <script>SharedComponents.init('posts');</script>
+    <script src="/js/app.js"></script>
+    <script src="/js/docs.js"></script>
+</body>
+</html>

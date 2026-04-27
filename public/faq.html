@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - BlogApp Engine</title>
+    
+    <!-- Fonts & Styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/global.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#a855f7',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    
+    <!-- Navbar -->
+    <nav class="nav-fixed glass px-4 md:px-12">
+        <div class="container mx-auto flex items-center justify-between">
+            <a href="/" class="text-2xl font-bold flex items-center gap-2">
+                <div class="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white text-xl">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <span class="gradient-text">BLOG</span><span class="text-slate-900 font-extrabold tracking-tight">APP</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-10 font-semibold text-slate-600">
+                <a href="/" class="hover:text-primary transition">Home</a>
+                <a href="/about" class="hover:text-primary transition">About</a>
+                <a href="/faq" class="text-primary border-b-2 border-primary">FAQ</a>
+                <a href="/docs" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-slate-800 shadow-lg shadow-slate-200 transition">API Docs</a>
+            </div>
+            
+            <button class="md:hidden text-2xl mobile-menu-btn"><i class="fas fa-bars-staggered"></i></button>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-slate-900 text-white pt-48 pb-32 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="reveal">
+                <h1 class="text-5xl md:text-7xl font-black mb-6">Pusat Bantuan.</h1>
+                <p class="text-slate-400 text-xl max-w-2xl mx-auto leading-relaxed">
+                    Temukan jawaban atas pertanyaan umum seputar penggunaan API dan platform BlogApp.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-32">
+        <div class="max-w-3xl mx-auto space-y-8">
+            
+            <div class="card reveal">
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-primary/10 text-primary rounded-xl flex-shrink-0 flex items-center justify-center text-xl">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Bagaimana cara mendapatkan akses API?</h3>
+                        <p class="text-slate-500 leading-relaxed">Anda dapat langsung menggunakan Base URL yang tersedia di halaman dokumentasi. Untuk saat ini, API bersifat publik dan tidak memerlukan key khusus untuk pembacaan data (read-only).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card reveal" style="animation-delay: 0.1s">
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-xl flex-shrink-0 flex items-center justify-center text-xl">
+                        <i class="fas fa-gauge-high"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Apakah ada batasan jumlah request?</h3>
+                        <p class="text-slate-500 leading-relaxed">Ya, kami menerapkan Rate Limiting sebesar 30 request per menit per alamat IP untuk menjaga performa server tetap optimal bagi semua pengguna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card reveal" style="animation-delay: 0.2s">
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex-shrink-0 flex items-center justify-center text-xl">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Apakah data bersifat real-time?</h3>
+                        <p class="text-slate-500 leading-relaxed">Seluruh data yang Anda tarik melalui API sinkron secara langsung dengan database utama kami. Setiap pembaruan artikel akan langsung tersedia di endpoint API.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card reveal" style="animation-delay: 0.3s">
+                <div class="flex gap-6">
+                    <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex-shrink-0 flex items-center justify-center text-xl">
+                        <i class="fas fa-file-code"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">Format data apa yang digunakan?</h3>
+                        <p class="text-slate-500 leading-relaxed">Kami menggunakan format JSON (JavaScript Object Notation) standar untuk semua respons API, memudahkan integrasi di hampir semua bahasa pemrograman modern.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="mt-20 text-center reveal">
+            <h4 class="text-xl font-bold mb-6">Masih punya pertanyaan lain?</h4>
+            <a href="mailto:support@blogapp.com" class="btn-primary inline-flex items-center gap-3">
+                Hubungi Tim Support <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-32 pb-12 border-t border-slate-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
+                <div class="col-span-1 md:col-span-2">
+                    <a href="/" class="text-3xl font-bold flex items-center gap-2 mb-8">
+                        <span class="gradient-text">BLOG</span><span class="text-slate-900 font-extrabold tracking-tight">APP</span>
+                    </a>
+                    <p class="max-w-md text-slate-500 text-lg leading-relaxed mb-10">
+                        Platform publikasi konten digital yang mengutamakan kecepatan, keamanan, dan fleksibilitas integrasi melalui teknologi RESTful API tercanggih.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-lg mb-8">Navigasi</h4>
+                    <ul class="space-y-4 font-medium text-slate-500">
+                        <li><a href="/about" class="hover:text-primary transition">Tentang Kami</a></li>
+                        <li><a href="/faq" class="hover:text-primary transition">FAQ</a></li>
+                        <li><a href="/docs" class="hover:text-primary transition">Dokumentasi API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-slate-900 font-bold text-lg mb-8">Legalitas</h4>
+                    <ul class="space-y-4 font-medium text-slate-500">
+                        <li><a href="/policy" class="hover:text-primary transition">Kebijakan Layanan</a></li>
+                        <li><a href="/privacy" class="hover:text-primary transition">Privasi Data</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-400 font-medium">&copy; 2026 BlogApp Engine. All rights reserved.</p>
+                <p class="text-slate-400">Made with <i class="fas fa-heart text-red-500"></i> by <span class="font-bold text-slate-900">Antigravity</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
