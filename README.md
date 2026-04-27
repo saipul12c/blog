@@ -59,7 +59,7 @@ Dibangun dengan fokus pada **estetika premium** dan **keamanan tingkat tinggi**,
    ```bash
    npm start
    ```
-   Aplikasi akan berjalan di `https://blog-one-nu-79.vercel.app/`.
+   Aplikasi akan berjalan di `http://localhost:3000`.
 
 ## 📄 Dokumentasi API <a name="api-reference"></a>
 
