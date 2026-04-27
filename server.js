@@ -48,7 +48,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Inisialisasi Storage
+// Inisialisasi Storage (Hanya jika bukan di environment serverless seperti Vercel)
 async function initStorage() {
+  if (process.env.VERCEL) return;
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
     try { await fs.access(DATA_FILE); } catch { await fs.writeFile(DATA_FILE, JSON.stringify([], null, 2)); }
@@ -207,6 +209,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Terjadi kesalahan internal server' });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 API Server berjalan di http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 API Server berjalan di http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
